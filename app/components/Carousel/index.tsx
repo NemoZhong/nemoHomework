@@ -1,5 +1,4 @@
 import React, {
-  useEffect,
   useLayoutEffect,
   useState,
   useRef,
@@ -9,12 +8,11 @@ import React, {
 type Props = {};
 
 const Carousel = (props: Props) => {
-  const [active, setActive] = useState(1);
   const [data, setData] = useState([1, 2, 3]);
 
   const ref = useRef<any>(null);
 
-  const first = () => {
+  const save = () => {
     [...ref.current.children].forEach((item) => {
       const { left, top } = item.getBoundingClientRect();
       item.dataset.left = left;
@@ -23,7 +21,7 @@ const Carousel = (props: Props) => {
   };
 
   useLayoutEffect(() => {
-    first();
+    save();
   }, []);
 
   useLayoutEffect(() => {
@@ -38,8 +36,11 @@ const Carousel = (props: Props) => {
       const keyframes = [
         {
           transform: `translate(${invert.left}px, ${invert.top}px) scale(1)`,
+          backgroundColor: idx===1 ?'#444':'#D9D9D9'
         },
-        { transform: `translate(0, 0) scale(${active === idx ? 1.2 : 1})` },
+        { transform: `translate(0, 0) scale(${idx===1 ? 1.2 : 1})`,
+        backgroundColor:idx===1 ?'#D9D9D9':'#444'
+      },
       ];
 
       const options = {
@@ -50,7 +51,7 @@ const Carousel = (props: Props) => {
 
       item.animate(keyframes, options);
     });
-  }, [data, active]);
+  }, [data]);
 
   const change = useCallback((item: number) => {
     const newData = [
@@ -58,19 +59,17 @@ const Carousel = (props: Props) => {
       item,
       item + 1 > 3 ? 1 : item + 1,
     ];
-    setActive(active);
     setData(newData);
-    first();
+    save();
   }, []);
 
   return (
     <div className="flex justify-center" ref={ref}>
       {data.map((item, index) => {
-        return active === index ? (
+        return  index===1 ? (
           <div
             key={item}
             className={`rounded-full w-[3rem] h-[3rem] bg-avatarColor z-20 mr-[-0.5rem]`}
-            onClick={() => change(item)}
           ></div>
         ) : (
           <div
