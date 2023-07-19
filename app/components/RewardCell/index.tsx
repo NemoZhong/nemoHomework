@@ -9,7 +9,7 @@ type Props = {
 const RewardCell = (props: Props) => {
   const { reward } = props;
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center">
       <Image
         className="mr-[0.25rem]"
         src={'/images/Sphere4.svg'}
@@ -17,7 +17,7 @@ const RewardCell = (props: Props) => {
         height={20}
         alt=""
       />
-      {reward}
+      <span className="font-fontBold">{reward}</span>
     </div>
   );
 };

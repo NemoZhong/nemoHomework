@@ -39,3 +39,8 @@ body {
 * {
   font-family: 'NEXT Book Thin';
 }
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+  border-radius: 2px;
+}

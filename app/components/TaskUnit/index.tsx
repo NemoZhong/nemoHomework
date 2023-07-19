@@ -16,7 +16,7 @@ const TaskUnit = (props: Props) => {
   const content = useMemo(() => {
     if (percent >= 100) {
       return (
-        <div className="flex flex-col justify-center items-center rounded-full m-[10px] w-[7.69rem] h-[7.69rem]  bg-[url('/images/claimed-bg.svg')] bg-no-repeat bg-bottom bg-black opacity-[0.5] border-[0.5px] border-[#5C5C5C]">
+        <div className="flex flex-col justify-center items-center rounded-full m-[10px] w-[7.69rem] h-[7.69rem] relative after:block after:absolute after:w-full after:h-full after:bg-[url('/images/claimed-bg.svg')] after:bg-no-repeat after:bg-bottom after:opacity-[0.5] bg-black border-[0.5px] border-[#5C5C5C]">
           <div className="w-[4.9375rem] h-[2.5rem] rounded-[0.75rem] border-[1px] border-disabledTextColor text-center text-disabledTextColor text-[0.875rem] leading-[2.5rem]">
             Claimed
           </div>

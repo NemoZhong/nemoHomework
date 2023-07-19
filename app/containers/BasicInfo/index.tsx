@@ -35,7 +35,7 @@ const BasicInfo = (props: Props) => {
       </div>
       <div>
         <Carousel />
-        <div className="mt-[1.5rem] text-[0.875rem] mx-auto rounded-[0.75rem] cursor-pointer bg-gradient-to-b from-[#353535] to-[ #2E2E2E] leading-[2rem] text-center w-[9.0625rem] h-[2.5rem]">
+        <div className="mt-[1.5rem] text-[0.875rem] mx-auto rounded-[0.75rem] cursor-pointer bg-[#353535]  leading-[2.5rem] text-center w-[9.0625rem] h-[2.5rem]">
           View all badges
         </div>
       </div>
