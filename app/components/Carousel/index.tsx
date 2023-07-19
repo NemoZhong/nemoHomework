@@ -1,9 +1,4 @@
-import React, {
-  useLayoutEffect,
-  useState,
-  useRef,
-  useCallback,
-} from 'react';
+import React, { useLayoutEffect, useState, useRef, useCallback } from 'react';
 
 type Props = {};
 
@@ -36,11 +31,12 @@ const Carousel = (props: Props) => {
       const keyframes = [
         {
           transform: `translate(${invert.left}px, ${invert.top}px) scale(1)`,
-          backgroundColor: idx===1 ?'#444':'#D9D9D9'
+          backgroundColor: idx === 1 ? '#444' : '#D9D9D9',
         },
-        { transform: `translate(0, 0) scale(${idx===1 ? 1.2 : 1})`,
-        backgroundColor:idx===1 ?'#D9D9D9':'#444'
-      },
+        {
+          transform: `translate(0, 0) scale(${idx === 1 ? 1.2 : 1})`,
+          backgroundColor: idx === 1 ? '#D9D9D9' : '#444',
+        },
       ];
 
       const options = {
@@ -48,7 +44,6 @@ const Carousel = (props: Props) => {
         easing: 'cubic-bezier(0,0,0.32,1)',
         fill: 'forwards',
       };
-
       item.animate(keyframes, options);
     });
   }, [data]);
@@ -66,15 +61,15 @@ const Carousel = (props: Props) => {
   return (
     <div className="flex justify-center" ref={ref}>
       {data.map((item, index) => {
-        return  index===1 ? (
+        return index === 1 ? (
           <div
             key={item}
-            className={`rounded-full w-[3rem] h-[3rem] bg-avatarColor z-20 mr-[-0.5rem]`}
+            className={`rounded-full w-[4.3125rem] h-[4.3125rem] bg-avatarColor z-20 mx-[-0.75rem]`}
           ></div>
         ) : (
           <div
             key={item}
-            className={`rounded-full w-[3rem] h-[3rem] bg-notActiveColor mr-[-0.5rem]`}
+            className={`rounded-full w-[4.3125rem] h-[4.3125rem] bg-notActiveColor`}
             onClick={() => change(item)}
           ></div>
         );
